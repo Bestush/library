@@ -179,7 +179,7 @@ class Library {
     findBook(bookTitle, bookAuthor) {
         let bookId;
         this.books.forEach((book, bookIndex) => {
-            if (book.title.includes(bookTitle) || book.author.includes(bookAuthor)) {
+            if (book.title.includes(bookTitle) && book.author.includes(bookAuthor)) {
                 return bookId = bookIndex;
             }
         })
@@ -197,7 +197,7 @@ class Library {
         let numberOfthisBook = 0;
         this.cart.forEach((book) => {
             if (book.title === adddedBook.title
-                || book.author === adddedBook.author) { numberOfthisBook++ }
+                && book.author === adddedBook.author) { numberOfthisBook++ }
         })
         if (!numberOfthisBook) { this.cart.push(adddedBook); }
         return this.cart;
